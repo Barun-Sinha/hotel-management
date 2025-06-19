@@ -1,0 +1,122 @@
+export const dummyHotels = [
+  {
+    name: "Ocean Breeze Resort",
+    title: "Ocean Breeze Resort",
+    destination: "Goa",
+    location: "Goa",
+    cheapestPrice: 3200,
+    photos: "https://www.kayak.co.in/rimg/himg/7a/6b/ed/leonardo-2620257-169546359-462379.jpg?width=968&height=607&crop=true",
+    description: "Relax at this peaceful beachside resort with scenic ocean views.",
+    amenities: ["WiFi", "Pool", "Breakfast", "AC", "Bar"],
+    maxGuests: 4,
+    rating: 4.5
+  },
+  {
+    name: "Himalayan Heights",
+    title: "Himalayan Heights",
+    destination: "Manali",
+    location: "Manali",
+    cheapestPrice: 2800,
+    photos: "https://www.kayak.co.in/rimg/himg/d4/e1/22/leonardo-2620257-184607525-482757.jpg?width=968&height=607&crop=true",
+    description: "Stay close to nature in this cozy hillside retreat.",
+    amenities: ["WiFi", "Heater", "Parking", "Balcony"],
+    maxGuests: 3,
+    rating: 4.2
+  },
+  {
+    name: "City Lights Apartment",
+    title: "City Lights Apartment",
+    location: "Mumbai",
+    destination: "Mumbai",
+    cheapestPrice: 4500,
+    photos: "https://www.kayak.co.in/rimg/himg/9e/e5/d9/leonardo-2620257-169546011-124863.jpg?width=968&height=607&crop=true",
+    description: "A modern apartment in the heart of the city with all amenities.",
+    amenities: ["WiFi", "AC", "TV", "Kitchen"],
+    maxGuests: 2,
+    rating: 4.7
+  },
+  {
+    name: "Royal Heritage Palace",
+    title: "Royal Heritage Palace",
+    location: "Jaipur",
+    destination: "Jaipur",
+    cheapestPrice: 5200,
+    photos: "https://www.kayak.co.in/rimg/himg/19/3d/fe/expedia_group-2416921-2ae0a2-823234.jpg?width=836&height=607&crop=true",
+    description: "Experience royalty in a beautifully restored heritage palace.",
+    amenities: ["WiFi", "AC", "Restaurant", "Garden", "Spa"],
+    maxGuests: 5,
+    rating: 4.9
+  },
+  {
+    name: "Backwater Bliss",
+    title: "Backwater Bliss",
+    location: "Alleppey",
+    destination: "Alleppey",
+    cheapestPrice: 3500,
+    photos: "https://www.kayak.co.in/rimg/himg/7a/6b/ed/leonardo-2620257-169546359-462379.jpg?width=968&height=607&crop=true",
+    description: "Enjoy tranquil backwater views from a luxury houseboat.",
+    amenities: ["WiFi", "AC", "Boat Tour", "Kitchen"],
+    maxGuests: 4,
+    rating: 4.6
+  },
+  {
+    name: "Desert Dunes Camp",
+    title: "Desert Dunes Camp",
+    location: "Jaisalmer",
+    destination: "Jaisalmer",
+    cheapestPrice: 1800,
+    photos: "https://www.kayak.co.in/rimg/himg/19/3d/fe/expedia_group-2416921-2ae0a2-823234.jpg?width=836&height=607&crop=true",
+    description: "A traditional desert camp experience under the stars.",
+    amenities: ["Dinner", "Campfire", "Cultural Show", "WiFi"],
+    maxGuests: 2,
+    rating: 4.1
+  },
+  {
+    name: "Lakeside Lodge",
+    title: "Lakeside Lodge",
+    location: "Nainital",
+    destination: "Nainital",
+    cheapestPrice: 2900,
+    photos: "https://www.kayak.co.in/rimg/himg/7a/6b/ed/leonardo-2620257-169546359-462379.jpg?width=968&height=607&crop=true",
+    description: "Wake up to misty mornings by the lake in a cozy cabin.",
+    amenities: ["Balcony", "Heater", "WiFi", "Breakfast"],
+    maxGuests: 3,
+    rating: 4.3
+  },
+  {
+    name: "The Zen Cottage",
+    title: "The Zen Cottage",
+    location: "Rishikesh",
+    destination: "Rishikesh",
+    cheapestPrice: 2400,
+    photos: "https://www.kayak.co.in/rimg/himg/d4/e1/22/leonardo-2620257-184607525-482757.jpg?width=968&height=607&crop=true",
+    description: "Find your peace in this spiritual getaway near the Ganges.",
+    amenities: ["Yoga", "WiFi", "Kitchen", "Mountain View"],
+    maxGuests: 2,
+    rating: 4.4
+  },
+  {
+    name: "Forest Retreat Villa",
+    title: "Forest Retreat Villa",
+    location: "Coorg",
+    destination: "Coorg",
+    cheapestPrice: 3100,
+    photos: "https://www.kayak.co.in/rimg/himg/7a/6b/ed/leonardo-2620257-169546359-462379.jpg?width=968&height=607&crop=true",
+    description: "Surround yourself with nature in this forest retreat.",
+    amenities: ["WiFi", "Kitchen", "Garden", "Heater"],
+    maxGuests: 4,
+    rating: 4.5
+  },
+  {
+    name: "Snowcap Studio",
+    title: "Snowcap Studio",
+    location: "Shimla",
+    destination: "Shimla",
+    cheapestPrice: 2700,
+    photos: "https://www.kayak.co.in/rimg/himg/19/3d/fe/expedia_group-2416921-2ae0a2-823234.jpg?width=836&height=607&crop=true",
+    description: "A perfect studio for couples with snowy mountain views.",
+    amenities: ["WiFi", "Heater", "TV", "Balcony"],
+    maxGuests: 2,
+    rating: 4.2
+  }
+];
