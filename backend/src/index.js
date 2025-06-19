@@ -22,7 +22,7 @@ app.use(cors({
   credentials: true, // allow cookies/auth headers
 }));
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001;
 
 //routes
 
