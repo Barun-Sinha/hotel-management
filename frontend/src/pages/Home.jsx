@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get('hotel/');
+        const response = await axios.get('/api/v1/hotel/');
         setHotels(response.data.hotels);
         // console.log('fetched data : ',response.data);
       } catch (error) {

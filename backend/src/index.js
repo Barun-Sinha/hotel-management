@@ -34,7 +34,13 @@ app.use('/api/v1/bookings',bookingRoutes)
 
 
 
-app.listen(PORT,()=>{
-    console.log("server is listening on port : " + PORT);
-    connectDB();
-})
+
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`✅ Server is listening on port: ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('❌ Failed to connect to DB:', error);
+  });
