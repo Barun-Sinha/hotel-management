@@ -12,7 +12,6 @@ const HotelDetails = () => {
     const fetchHotel = async () => {
       try {
         const res = await axiosInstance.get(`/api/v1/hotel/${id}`);
-        console.log(res.data.hotel); // adapt your baseURL if needed
         setHotel(res.data.hotel);
       } catch (err) {
         console.error('Failed to fetch hotel:', err);
