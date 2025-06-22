@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.set('trust proxy', 1);
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000','https://hotel-management-react.netlify.app'],
   credentials: true, // allow cookies/auth headers
 }));
 
