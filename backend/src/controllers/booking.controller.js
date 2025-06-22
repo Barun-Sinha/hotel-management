@@ -81,6 +81,10 @@ export const getUsersBooking = async (req, res) => {
         .populate('hotelId', 'name location')
         .populate('roomId', 'title price')
         .sort({ createdAt: -1 });
+
+        bookings = bookings.filter(
+          booking => booking.hotelId !== null && booking.roomId !== null
+        );
     
         if (!bookings.length) {
         return res.status(404).json({ message: "No bookings found" });
