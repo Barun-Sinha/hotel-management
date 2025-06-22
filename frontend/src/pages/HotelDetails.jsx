@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import axios from '../utils/axiosInstance.js'; // Adjust the import path as necessary
+import axiosInstance from '../utils/axiosInstance.js'; // Adjust the import path as necessary
 import { RoomCard } from '../components/RoomCard';
 
 const HotelDetails = () => {
@@ -11,7 +11,7 @@ const HotelDetails = () => {
   useEffect(() => {
     const fetchHotel = async () => {
       try {
-        const res = await axios.get(`/hotel/${id}`);
+        const res = await axiosInstance.get(`/api/v1/hotel/${id}`);
         console.log(res.data.hotel); // adapt your baseURL if needed
         setHotel(res.data.hotel);
       } catch (err) {

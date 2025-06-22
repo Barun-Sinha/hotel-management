@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import axios from '../utils/axiosInstance.js';
+import axiosInstance from '../utils/axiosInstance.js';
 import { RoomCard } from '../components/RoomCard';
 
 const SearchResults = () => {
@@ -13,7 +13,7 @@ const SearchResults = () => {
         const { location, checkIn, checkOut, guests } = search;
 
         // 1. Get all hotels in the location
-        const res = await axios.get(`/hotel/city/${location}`);
+        const res = await axiosInstance.get(`/api/v1/hotel/city/${location}`);
         const hotels = res.data.hotels;
 
         const plannedDates = [];
@@ -33,7 +33,7 @@ const SearchResults = () => {
 
         // 3. Loop through each hotel
         for (const hotel of hotels) {
-          const roomRes = await axios.get(`/room/byHotel/${hotel._id}`);
+          const roomRes = await axiosInstance.get(`/api/v1/room/byHotel/${hotel._id}`);
           const rooms = roomRes.data.rooms;
 
           for (const room of rooms) {

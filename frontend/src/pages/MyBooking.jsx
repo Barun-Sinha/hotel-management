@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import axios from '../utils/axiosInstance.js'; 
+import axiosInstance from '../utils/axiosInstance.js'; 
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -8,7 +8,7 @@ const MyBookings = () => {
 
   const fetchBookings = async () => {
     try {
-      const res = await axios.get('/bookings/my-bookings', {
+      const res = await axiosInstance.get('/api/v1/bookings/my-bookings', {
         withCredentials: true,
       });
       setBookings(res.data.bookings);
@@ -25,8 +25,8 @@ const MyBookings = () => {
 
   const handleCancelBooking = async (bookingId) => {
     try {
-      const res = await axios.delete(
-        `/bookings/${bookingId}/cancel`,
+      const res = await axiosInstance.delete(
+        `/api/v1/bookings/${bookingId}/cancel`,
         { withCredentials: true }
       );
       if (res.data.success) {

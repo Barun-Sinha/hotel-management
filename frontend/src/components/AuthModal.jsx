@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import axios from '../utils/axiosInstance.js';
+import axiosInstance from '../utils/axiosInstance.js';
 import { login } from '../redux/slices/authSlice.js';
 
 const AuthModal = ({ onClose }) => {
@@ -20,12 +20,12 @@ const AuthModal = ({ onClose }) => {
     setError('');
 
     try {
-      const url = mode === 'login' ? '/auth/login' : '/auth/register';
+      const url = mode === 'login' ? '/api/v1/auth/login' : '/api/v1/auth/register';
       const payload = mode === 'login'
         ? { email: formData.email, password: formData.password }
         : formData;
 
-      const res = await axios.post(url, payload, { withCredentials: true });
+      const res = await axiosInstance.post(url, payload, { withCredentials: true });
       dispatch(login(res.data.user));
       onClose();
     } catch (err) {

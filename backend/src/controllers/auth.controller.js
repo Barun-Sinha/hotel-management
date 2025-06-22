@@ -28,7 +28,7 @@ export const registerUser = async(req,res)=>{
         res.cookie('access_token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', 
-            sameSite: 'Strict',
+            sameSite: 'None',
             maxAge: 60 * 60 * 1000,
         })
         .status(201)
@@ -68,7 +68,7 @@ export const loginUser = async(req,res)=>{
         res.cookie('access_token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'Strict',
+            sameSite: 'None',
             maxAge: 60 * 60 * 1000,
         })
         .status(200)
@@ -93,9 +93,9 @@ export const logoutUser = (req,res)=>{
     res.clearCookie('access_token', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'Strict',
+        sameSite: 'None',
     })
-    .status(200)
+    return res.status(200)
     .json({ message: 'User logged out successfully' });
 };
 
@@ -103,7 +103,7 @@ export const getCurrentUser = (req, res) => {
     if (!req.user) {
         return res.status(401).json({ message: 'Unauthorized' });
     }
-    res.status(200).json({
+     return res.status(200).json({
         success: true,
         user: req.user,
     });

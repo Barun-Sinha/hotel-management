@@ -8,7 +8,7 @@ import SearchResults from './pages/SearchResults.jsx';
 import MyBookings from './pages/MyBooking.jsx';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import axios from './utils/axiosInstance.js';
+import axiosInstance from './utils/axiosInstance.js';
 import { login, logout, setLoading } from './redux/slices/authSlice.js';
 import AdminDashboard from './pages/AdminDashboard.jsx';
 
@@ -17,22 +17,24 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const checkAuth = async () => {
-      dispatch(setLoading(true));
-      try {
-        const res = await axios.get('/auth/me', { withCredentials: true });
-        if (res.data && res.data.user) {
+  const checkAuth = async () => {
+    dispatch(setLoading(true));
+    try {
+      const res = await axiosInstance.get('/api/v1/auth/me');
+      if (res.data?.user) {
         dispatch(login(res.data.user));
       } else {
         dispatch(logout());
       }
-      } catch (err) {
-        dispatch(logout());
-      }
-    };
+    } catch (err) {
+      dispatch(logout());
+    } finally {
+      dispatch(setLoading(false));
+    }
+  };
 
-    checkAuth();
-  }, [dispatch]);
+  checkAuth();
+}, [dispatch]);
 
   return (
     <Router>

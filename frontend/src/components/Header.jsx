@@ -3,7 +3,7 @@ import SearchForm from './SearchForm';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../redux/slices/authSlice.js';
-import axios from '../utils/axiosInstance.js';
+import axiosInstance from '../utils/axiosInstance.js';
 import AuthModal from './AuthModal.jsx';
 
 const Header = () => {
@@ -38,7 +38,7 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('/auth/logout', {}, { withCredentials: true });
+      await axiosInstance.post('/api/v1/auth/logout', {}, { withCredentials: true });
       dispatch(logout());
       navigate('/');
     } catch (error) {

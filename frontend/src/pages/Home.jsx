@@ -1,6 +1,6 @@
 import React, { useState ,useEffect } from 'react'
 // import axios from 'axios'
-import axios from '../utils/axiosInstance.js'
+import axiosInstance from '../utils/axiosInstance.js'
 import { HotelCard } from '../components/HotelCard.jsx'
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get('/api/v1/hotel/');
+        const response = await axiosInstance.get(`/api/v1/hotel/`);
         setHotels(response.data.hotels);
         // console.log('fetched data : ',response.data);
       } catch (error) {

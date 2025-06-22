@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../utils/axiosInstance.js'; 
+import axiosInstance from '../utils/axiosInstance.js'; 
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('users');
@@ -38,17 +38,17 @@ const AdminDashboard = () => {
   }, [activeTab]);
 
   const fetchUsers = async () => {
-    const res = await axios.get('/admin/users', { withCredentials: true });
+    const res = await axiosInstance.get('/api/v1/admin/users', { withCredentials: true });
     setUsers(res.data);
   };
 
   const fetchHotels = async () => {
-    const res = await axios.get('/hotel', { withCredentials: true });
+    const res = await axiosInstance.get('/api/v1/hotel', { withCredentials: true });
     setHotels(res.data.hotels);
   };
 
   const handleAddUser = async () => {
-    const res = await axios.post('/admin/users', newUser, { withCredentials: true });
+    const res = await axiosInstance.post('/api/v1/admin/users', newUser, { withCredentials: true });
     setUsers(prev => [...prev, res.data.user]);
     setShowAddUserModal(false);
     setNewUser({ username: '', email: '', password: '', role: 'user' });
@@ -56,14 +56,14 @@ const AdminDashboard = () => {
 
   const handleDeleteUser = async (userId) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
-    await axios.delete(`/admin/users/${userId}`, { withCredentials: true });
+    await axiosInstance.delete(`/api/v1/admin/users/${userId}`, { withCredentials: true });
     setUsers(prev => prev.filter(u => u._id !== userId));
   };
 
   const handleAddHotel = async () => {
   try {
-    const res = await axios.post(
-      '/hotel/create',
+    const res = await axiosInstance.post(
+      '/api/v1/hotel/create',
       {
         ...newHotel,
         rating: Number(newHotel.rating),
@@ -95,12 +95,12 @@ const AdminDashboard = () => {
 
   const handleDeleteHotel = async (hotelId) => {
     if (!window.confirm("Are you sure you want to delete this room?")) return;
-    await axios.delete(`/hotel/${hotelId}`, { withCredentials: true });
+    await axiosInstance.delete(`/api/v1/hotel/${hotelId}`, { withCredentials: true });
     setHotels(prev => prev.filter(h => h._id !== hotelId));
   };
 
   const handleSelectHotel = async (hotelId) => {
-    const res = await axios.get(`/hotel/${hotelId}`, { withCredentials: true });
+    const res = await axiosInstance.get(`/api/v1/hotel/${hotelId}`, { withCredentials: true });
     setSelectedHotel(res.data.hotel);
   };
 
@@ -117,8 +117,8 @@ const AdminDashboard = () => {
   };
 
   try {
-    const res = await axios.post(
-      `/room/${selectedHotel._id}`,
+    const res = await axiosInstance.post(
+      `/api/v1/room/${selectedHotel._id}`,
       roomToSubmit,
       { withCredentials: true }
     );
@@ -148,7 +148,7 @@ const AdminDashboard = () => {
 
   const handleDeleteRoom = async (roomId) => {
     if (!window.confirm("Are you sure you want to delete this room?")) return;
-    await axios.delete(`/room/${roomId}/${selectedHotel._id}`, { withCredentials: true });
+    await axiosInstance.delete(`/api/v1/room/${roomId}/${selectedHotel._id}`, { withCredentials: true });
     setSelectedHotel(prev => ({ ...prev, rooms: prev.rooms.filter(r => r._id !== roomId) }));
   };
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from '../utils/axiosInstance.js';
+import axiosInstance from '../utils/axiosInstance.js';
 
 const RoomDetails = () => {
   const { id } = useParams();
@@ -13,9 +13,9 @@ const RoomDetails = () => {
   useEffect(() => {
     const fetchRoom = async () => {
       try {
-        const res = await axios.get(`/room/${id}`);
+        const res = await axiosInstance.get(`/api/v1/room/${id}`);
         setRoom(res.data.room);
-        const hotelRes = await axios.get(`/hotel/${res.data.room.hotelId}`);
+        const hotelRes = await axiosInstance.get(`/api/v1/hotel/${res.data.room.hotelId}`);
         setHotel(hotelRes.data.hotel);
       } catch (err) {
         console.error('Error fetching room details', err);
@@ -37,8 +37,8 @@ const RoomDetails = () => {
   }
 
   try {
-    const res = await axios.post(
-      '/bookings/book',
+    const res = await axiosInstance.post(
+      '/api/v1/bookings/book',
       {
         roomId: room._id,
         hotelId: hotel._id,
